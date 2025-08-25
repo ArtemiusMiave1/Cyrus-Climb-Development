@@ -40,7 +40,7 @@ public class FirstPersonDrifter: MonoBehaviour
     public int antiBunnyHopFactor = 1;
  
     private Vector3 moveDirection = Vector3.zero;
-    public bool grounded = false;
+    private bool grounded = false;
     private CharacterController controller;
     private Transform myTransform;
     private float speed;
@@ -57,6 +57,16 @@ public class FirstPersonDrifter: MonoBehaviour
     private bool isClimbing = false;    //攀爬状态
     private Collider climbingSurface;   //当前攀爬的表面
 
+    [Header("Wall Backward Jump")]
+    public float backStepDistance = 1.5f;  // 后退距离
+    public float backStepDuration = 0.3f;  // 后退时间
+    public float wallJumpUpForce = 5f;      // 向上跳的力量
+    public float wallJumpDuration = 0.3f;   // 力量作用时间
+
+    private bool isWallJumping = false;
+    private float wallJumpTimer = 0f;
+    private Vector3 wallJumpDirection;
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -72,13 +82,12 @@ public class FirstPersonDrifter: MonoBehaviour
         // 检测是否按下攀爬键（例如空格键）来退出攀爬模式
         if (isClimbing && Input.GetButtonDown("Jump"))
         {
-            ExitClimbingMode();
+            ManualExitClimbingMode();
         }
     }
 
     void FixedUpdate() 
     {
-
         if (isClimbing)
         {
             /*// 在攀爬表面上移动
@@ -185,9 +194,10 @@ public class FirstPersonDrifter: MonoBehaviour
                 falling = true;
                 fallStartLevel = myTransform.position.y;
             }
- 
+
             // If air control is allowed, check movement but don't touch the y component
-            if (airControl && playerControl) {
+            if (airControl && playerControl)
+            {
                 moveDirection.x = inputX * speed * inputModifyFactor;
                 moveDirection.z = inputY * speed * inputModifyFactor;
                 moveDirection = myTransform.TransformDirection(moveDirection);
@@ -236,9 +246,6 @@ public class FirstPersonDrifter: MonoBehaviour
         isClimbing = true;
         climbingSurface = surface;
 
-        // 禁用重力效果
-        moveDirection = Vector3.zero;
-
         // 可以在这里添加其他进入攀爬模式的效果
         Debug.Log("Entered climbing mode");
     }
@@ -250,5 +257,101 @@ public class FirstPersonDrifter: MonoBehaviour
 
         // 可以在这里添加其他退出攀爬模式的效果
         Debug.Log("Exited climbing mode");
+    }
+
+    /*private void ManualExitClimbingMode()
+    {
+        *//*if (climbingSurface == null) return;
+
+        // 先保存墙面法线
+        Vector3 wallNormal = climbingSurface.transform.forward;
+
+        isClimbing = false;
+        grounded = false;
+
+        // 施加反向力（使用墙面法线方向）
+        moveDirection = -wallNormal * climbExitForce;
+
+        *//*// 2. 施加明确的向后退力（Z轴负方向）
+        moveDirection = transform.TransformDirection(Vector3.back) * climbExitForce;
+        moveDirection.y = 2f;  // 添加少许向上的力*//*
+
+        // 3. 立即应用一次移动（关键步骤！）
+        controller.Move(moveDirection * Time.deltaTime);
+
+        // 4. 清除引用
+        climbingSurface = null;*//*
+
+        if (climbingSurface == null) return;
+
+        // 1. 计算蹬跳方向（向后+向上）
+        Vector3 backDirection = -climbingSurface.transform.forward;
+        wallJumpDirection = (backDirection + Vector3.up).normalized;
+
+        *//*// 2. 分开计算水平和垂直力（避免归一化削弱后退力）
+        moveDirection.x = backDirection.x * wallJumpBackForce;
+        moveDirection.z = backDirection.z * wallJumpBackForce;
+        moveDirection.y = wallJumpUpForce;*//*
+
+        // 3. 设置跳跃状态
+        isWallJumping = true;
+        wallJumpTimer = wallJumpDuration;
+        isClimbing = false;
+        grounded = false;
+
+        // 4. 清除引用
+        climbingSurface = null;
+
+        // 可以在这里添加其他退出攀爬模式的效果
+        Debug.Log("Manually exited climbing mode");
+    }*/
+
+    private void ManualExitClimbingMode()
+    {
+        if (climbingSurface == null) return;
+
+        // 1. 计算后退目标位置（世界空间Z轴负方向）
+        Vector3 backStep = transform.position + Vector3.back * backStepDistance;
+
+        // 2. 施加瞬时向上力
+        moveDirection.y = wallJumpUpForce;
+        grounded = false;
+
+        // 3. 启动后退协程
+        StartCoroutine(PerformBackStep(backStep));
+
+        // 4. 清除状态
+        isClimbing = false;
+        climbingSurface = null;
+    }
+
+    private IEnumerator PerformBackStep(Vector3 targetPos)
+    {
+        Vector3 startPos = transform.position;
+        float elapsed = 0f;
+
+        // 记录初始Y速度（保留物理效果）
+        float initialYVelocity = moveDirection.y;
+
+        while (elapsed < backStepDuration)
+        {
+            // 计算水平插值
+            float t = elapsed / backStepDuration;
+            Vector3 newPos = Vector3.Lerp(startPos, targetPos, t);
+
+            // 保持物理计算的Y轴位置
+            newPos.y = transform.position.y;
+
+            // 使用CharacterController移动（关键修改！）
+            controller.Move(newPos - transform.position);
+
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        // 最终位置同步
+        Vector3 finalPos = targetPos;
+        finalPos.y = transform.position.y;
+        controller.Move(finalPos - transform.position);
     }
 }
