@@ -54,10 +54,17 @@ public class MouseLook : MonoBehaviour
 		if (axes == RotationAxes.MouseX)
 		{			
 			rotAverageX = 0f;
- 
-			rotationX += Input.GetAxis("Mouse X") * sensitivityX * Time.timeScale;
- 
-			rotArrayX.Add(rotationX);
+
+            //rotationX += Input.GetAxis("Mouse X") * sensitivityX * Time.timeScale;
+            float mouseXInput = Input.GetAxis("Mouse X") * sensitivityX * Time.timeScale;
+
+            // 检查是否已达到限制，只有在未达到限制时才累积输入
+            if (!IsAtXLimit(mouseXInput))
+            {
+                rotationX += mouseXInput;
+            }
+
+            rotArrayX.Add(rotationX);
  
 			if (rotArrayX.Count >= framesOfSmoothing)
 			{
@@ -82,9 +89,16 @@ public class MouseLook : MonoBehaviour
  			{
  				invertFlag = -1f;
  			}
-			rotationY += Input.GetAxis("Mouse Y") * sensitivityY * invertFlag * Time.timeScale;
-			
-			rotationY = Mathf.Clamp(rotationY, minimumY, maximumY);
+            //rotationY += Input.GetAxis("Mouse Y") * sensitivityY * invertFlag * Time.timeScale;
+            float mouseYInput = Input.GetAxis("Mouse Y") * sensitivityY * invertFlag * Time.timeScale;
+
+            // 检查是否已达到限制，只有在未达到限制时才累积输入
+            if (!IsAtYLimit(mouseYInput))
+            {
+                rotationY += mouseYInput;
+            }
+
+            rotationY = Mathf.Clamp(rotationY, minimumY, maximumY);
  	
 			rotArrayY.Add(rotationY);
  
@@ -122,4 +136,24 @@ public class MouseLook : MonoBehaviour
 		}
 		return Mathf.Clamp (angle, min, max);
 	}
+
+    // 检查X轴是否已达到限制
+    private bool IsAtXLimit(float newInput)
+    {
+        float projectedRotation = rotationX + newInput;
+        float clampedRotation = ClampAngle(projectedRotation, minimumX, maximumX);
+
+        // 如果投影的旋转值被限制，说明已达到边界
+        return Mathf.Abs(projectedRotation - clampedRotation) > 0.001f;
+    }
+
+    // 检查Y轴是否已达到限制
+    private bool IsAtYLimit(float newInput)
+    {
+        float projectedRotation = rotationY + newInput;
+        float clampedRotation = Mathf.Clamp(projectedRotation, minimumY, maximumY);
+
+        // 如果投影的旋转值被限制，说明已达到边界
+        return Mathf.Abs(projectedRotation - clampedRotation) > 0.001f;
+    }
 }

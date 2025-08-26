@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManager;
+using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
@@ -14,6 +14,12 @@ public class SceneLoader : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+    }
+
+    public void LoadScene()
+    {
         SceneManager.LoadScene("Patrick - Blocking Out Scene");
+
     }
 }
+
