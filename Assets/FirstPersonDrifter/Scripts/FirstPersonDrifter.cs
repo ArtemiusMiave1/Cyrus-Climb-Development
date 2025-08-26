@@ -226,7 +226,7 @@ public class FirstPersonDrifter: MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         // 当进入触发器时进入攀爬模式
-        if (!isClimbing && other.isTrigger)
+        if (!isClimbing && other.isTrigger && !other.CompareTag("Collectable"))
         {
             EnterClimbingMode(other);
         }
