@@ -175,8 +175,10 @@ public class FirstPersonDrifter: MonoBehaviour
             }
             // Otherwise recalculate moveDirection directly from axes, adding a bit of -y to avoid bumping down inclines
             else {
-                moveDirection = new Vector3(inputX * inputModifyFactor, -antiBumpFactor, inputY * inputModifyFactor);
-                moveDirection = myTransform.TransformDirection(moveDirection) * speed;
+                // The player's moving coordinates are not affected by rotation
+                moveDirection = new Vector3(inputX * inputModifyFactor, -antiBumpFactor, inputY * inputModifyFactor) * speed;
+
+                /*moveDirection = myTransform.TransformDirection(moveDirection) * speed;*/
                 playerControl = true;
             }
  
@@ -200,7 +202,7 @@ public class FirstPersonDrifter: MonoBehaviour
             {
                 moveDirection.x = inputX * speed * inputModifyFactor;
                 moveDirection.z = inputY * speed * inputModifyFactor;
-                moveDirection = myTransform.TransformDirection(moveDirection);
+                /*moveDirection = myTransform.TransformDirection(moveDirection);*/
             }
         }
  
@@ -226,7 +228,7 @@ public class FirstPersonDrifter: MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         // 当进入触发器时进入攀爬模式
-        if (!isClimbing && other.isTrigger && !other.CompareTag("Collectable"))
+        if (!isClimbing && other.isTrigger)
         {
             EnterClimbingMode(other);
         }
