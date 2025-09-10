@@ -53,19 +53,21 @@ public class FirstPersonDrifter: MonoBehaviour
     private bool playerControl = false;
     private int jumpTimer;
 
-    public float climbSpeed = 3.0f;     //攀爬速度
-    private bool isClimbing = false;    //攀爬状态
-    private Collider climbingSurface;   //当前攀爬的表面
+    public float climbSpeed = 3.0f;         //攀爬速度
+    public bool isClimbing = false;         //攀爬状态
+    private Collider climbingSurface;       //当前攀爬的表面
 
     [Header("Wall Backward Jump")]
-    public float backStepDistance = 1.5f;  // 后退距离
-    public float backStepDuration = 0.3f;  // 后退时间
-    public float wallJumpUpForce = 5f;      // 向上跳的力量
-    public float wallJumpDuration = 0.3f;   // 力量作用时间
+    public float backStepDistance = 1.5f;   //后退距离
+    public float backStepDuration = 0.3f;   //后退时间
+    public float wallJumpUpForce = 5f;      //向上跳的力量
+    public float wallJumpDuration = 0.3f;   //力量作用时间
 
     private bool isWallJumping = false;
     private float wallJumpTimer = 0f;
     private Vector3 wallJumpDirection;
+
+    public float playerFacing = 0f;         //玩家朝向
 
     void Start()
     {
@@ -79,7 +81,7 @@ public class FirstPersonDrifter: MonoBehaviour
 
     void Update()
     {
-        // 检测是否按下攀爬键（例如空格键）来退出攀爬模式
+        //检测是否按下空格键来退出攀爬模式
         if (isClimbing && Input.GetButtonDown("Jump"))
         {
             ManualExitClimbingMode();
@@ -90,35 +92,34 @@ public class FirstPersonDrifter: MonoBehaviour
     {
         if (isClimbing)
         {
-            /*// 在攀爬表面上移动
+            /*//在攀爬表面上移动
             Vector3 move = new Vector3(inputX, inputY, 0) * climbSpeed;
 
-            // 将移动方向转换到攀爬表面的局部空间
+            //将移动方向转换到攀爬表面的局部空间
             Vector3 surfaceRight = climbingSurface.transform.right;
             Vector3 surfaceUp = climbingSurface.transform.up;
 
-            // 计算实际移动方向
+            //计算实际移动方向
             Vector3 worldMove = surfaceRight * move.x + surfaceUp * move.y;
 
-            // 应用移动
+            //应用移动
             controller.Move(worldMove * Time.deltaTime);
 
-            // 在攀爬时禁用重力
+            //在攀爬时禁用重力
             moveDirection.y = 0;*/
 
-            // 1. 直接使用墙面坐标系
+            //墙面坐标系
             float climbX = Input.GetAxis("Horizontal");
             float climbY = Input.GetAxis("Vertical");
 
-            // 2. 计算墙面坐标系移动
+            //计算墙面坐标系移动
             Vector3 move = climbingSurface.transform.right * climbX
                          + climbingSurface.transform.up * climbY;
 
-            // 2. 标准化并应用速度
+            //标准化并应用速度
             if (move.magnitude > 1) move.Normalize();
             move *= climbSpeed;
 
-            // 3. 禁用所有物理影响
             moveDirection = Vector3.zero;
             controller.Move(move * Time.deltaTime);
 
@@ -175,8 +176,10 @@ public class FirstPersonDrifter: MonoBehaviour
             }
             // Otherwise recalculate moveDirection directly from axes, adding a bit of -y to avoid bumping down inclines
             else {
-                moveDirection = new Vector3(inputX * inputModifyFactor, -antiBumpFactor, inputY * inputModifyFactor);
-                moveDirection = myTransform.TransformDirection(moveDirection) * speed;
+                // The player's moving coordinates are not affected by rotation
+                moveDirection = new Vector3(inputX * inputModifyFactor, -antiBumpFactor, inputY * inputModifyFactor) * speed;
+
+                /*moveDirection = myTransform.TransformDirection(moveDirection) * speed;*/
                 playerControl = true;
             }
  
@@ -200,7 +203,7 @@ public class FirstPersonDrifter: MonoBehaviour
             {
                 moveDirection.x = inputX * speed * inputModifyFactor;
                 moveDirection.z = inputY * speed * inputModifyFactor;
-                moveDirection = myTransform.TransformDirection(moveDirection);
+                /*moveDirection = myTransform.TransformDirection(moveDirection);*/
             }
         }
  
@@ -225,8 +228,7 @@ public class FirstPersonDrifter: MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        // 当进入触发器时进入攀爬模式
-        if (!isClimbing && other.isTrigger && !other.CompareTag("Collectable"))
+        if (!isClimbing && other.isTrigger)
         {
             EnterClimbingMode(other);
         }
@@ -234,7 +236,6 @@ public class FirstPersonDrifter: MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        // 当离开触发器时退出攀爬模式
         if (isClimbing && other == climbingSurface)
         {
             ExitClimbingMode();
@@ -246,8 +247,14 @@ public class FirstPersonDrifter: MonoBehaviour
         isClimbing = true;
         climbingSurface = surface;
 
-        // 可以在这里添加其他进入攀爬模式的效果
-        Debug.Log("Entered climbing mode");
+        if (surface.transform.parent != null)
+        {
+            //返回父物体的Y轴旋转角度
+            playerFacing = surface.transform.parent.eulerAngles.y;
+        }
+
+        Debug.Log(playerFacing);
+        Debug.Log("Enter climbing mode");
     }
 
     private void ExitClimbingMode()
@@ -255,72 +262,24 @@ public class FirstPersonDrifter: MonoBehaviour
         isClimbing = false;
         climbingSurface = null;
 
-        // 可以在这里添加其他退出攀爬模式的效果
         Debug.Log("Exited climbing mode");
     }
-
-    /*private void ManualExitClimbingMode()
-    {
-        *//*if (climbingSurface == null) return;
-
-        // 先保存墙面法线
-        Vector3 wallNormal = climbingSurface.transform.forward;
-
-        isClimbing = false;
-        grounded = false;
-
-        // 施加反向力（使用墙面法线方向）
-        moveDirection = -wallNormal * climbExitForce;
-
-        *//*// 2. 施加明确的向后退力（Z轴负方向）
-        moveDirection = transform.TransformDirection(Vector3.back) * climbExitForce;
-        moveDirection.y = 2f;  // 添加少许向上的力*//*
-
-        // 3. 立即应用一次移动（关键步骤！）
-        controller.Move(moveDirection * Time.deltaTime);
-
-        // 4. 清除引用
-        climbingSurface = null;*//*
-
-        if (climbingSurface == null) return;
-
-        // 1. 计算蹬跳方向（向后+向上）
-        Vector3 backDirection = -climbingSurface.transform.forward;
-        wallJumpDirection = (backDirection + Vector3.up).normalized;
-
-        *//*// 2. 分开计算水平和垂直力（避免归一化削弱后退力）
-        moveDirection.x = backDirection.x * wallJumpBackForce;
-        moveDirection.z = backDirection.z * wallJumpBackForce;
-        moveDirection.y = wallJumpUpForce;*//*
-
-        // 3. 设置跳跃状态
-        isWallJumping = true;
-        wallJumpTimer = wallJumpDuration;
-        isClimbing = false;
-        grounded = false;
-
-        // 4. 清除引用
-        climbingSurface = null;
-
-        // 可以在这里添加其他退出攀爬模式的效果
-        Debug.Log("Manually exited climbing mode");
-    }*/
 
     private void ManualExitClimbingMode()
     {
         if (climbingSurface == null) return;
 
-        // 1. 计算后退目标位置（世界空间Z轴负方向）
+        //计算后退目标位置（世界空间Z轴负方向）
         Vector3 backStep = transform.position + Vector3.back * backStepDistance;
 
-        // 2. 施加瞬时向上力
+        //施加瞬时向上力
         moveDirection.y = wallJumpUpForce;
         grounded = false;
 
-        // 3. 启动后退协程
+        //启动后退协程
         StartCoroutine(PerformBackStep(backStep));
 
-        // 4. 清除状态
+        //清除状态
         isClimbing = false;
         climbingSurface = null;
     }
@@ -330,26 +289,25 @@ public class FirstPersonDrifter: MonoBehaviour
         Vector3 startPos = transform.position;
         float elapsed = 0f;
 
-        // 记录初始Y速度（保留物理效果）
+        //记录初始Y速度
         float initialYVelocity = moveDirection.y;
 
         while (elapsed < backStepDuration)
         {
-            // 计算水平插值
+            //计算水平插值
             float t = elapsed / backStepDuration;
             Vector3 newPos = Vector3.Lerp(startPos, targetPos, t);
 
-            // 保持物理计算的Y轴位置
+            //保持物理计算的Y轴位置
             newPos.y = transform.position.y;
 
-            // 使用CharacterController移动（关键修改！）
             controller.Move(newPos - transform.position);
 
             elapsed += Time.deltaTime;
             yield return null;
         }
 
-        // 最终位置同步
+        //最终位置同步
         Vector3 finalPos = targetPos;
         finalPos.y = transform.position.y;
         controller.Move(finalPos - transform.position);

@@ -38,8 +38,21 @@ public class MouseLook : MonoBehaviour
 	public float framesOfSmoothing = 5;
  
 	Quaternion originalRotation;
-	
-	void Start ()
+
+
+    // 玩家移动旋转相关变量
+    public float rotationSmoothness = 5f;
+    private float targetPlayerRotationY = 0f;
+    private float currentPlayerRotationY = 0f;
+
+    // 摄像头引用
+    public Transform mainCamera;
+
+    Quaternion originalCameraRotation;
+
+    [SerializeField] private FirstPersonDrifter firstPersonDrifter;
+
+    void Start ()
 	{			
 		if (GetComponent<Rigidbody>())
 		{
@@ -47,18 +60,49 @@ public class MouseLook : MonoBehaviour
 		}
 		
 		originalRotation = transform.localRotation;
-	}
+
+        // 获取或设置主摄像头
+        if (mainCamera == null)
+        {
+            mainCamera = transform.Find("Main Camera (1)");
+            if (mainCamera == null)
+            {
+                Camera cam = GetComponentInChildren<Camera>();
+                if (cam != null) mainCamera = cam.transform;
+            }
+        }
+
+        if (mainCamera != null)
+        {
+            originalCameraRotation = mainCamera.localRotation;
+            /*// 保存摄像头的初始世界旋转和本地位置
+            initialWorldRotation = mainCamera.rotation;
+            initialLocalPosition = mainCamera.localPosition;*/
+        }
+    }
  
 	void Update ()
 	{
-		if (axes == RotationAxes.MouseX)
+        if (firstPersonDrifter != null && firstPersonDrifter.isClimbing == false)
+        {
+            HandleMovementRotation();
+        }
+
+        if (firstPersonDrifter != null && firstPersonDrifter.isClimbing == true)
+        {
+            ClimbingRotation();
+        }
+        ApplyFinalRotation();
+        KeepCameraUpright();
+
+        if (axes == RotationAxes.MouseX)
 		{			
 			rotAverageX = 0f;
 
             //rotationX += Input.GetAxis("Mouse X") * sensitivityX * Time.timeScale;
             float mouseXInput = Input.GetAxis("Mouse X") * sensitivityX * Time.timeScale;
 
-            // 检查是否已达到限制，只有在未达到限制时才累积输入
+            //检查是否已达到限制，只有在未达到限制时才累积输入
             if (!IsAtXLimit(mouseXInput))
             {
                 rotationX += mouseXInput;
@@ -77,8 +121,8 @@ public class MouseLook : MonoBehaviour
 			rotAverageX /= rotArrayX.Count;
 			rotAverageX = ClampAngle(rotAverageX, minimumX, maximumX);
  
-			Quaternion xQuaternion = Quaternion.AngleAxis (rotAverageX, Vector3.up);
-			transform.localRotation = originalRotation * xQuaternion;			
+			/*Quaternion xQuaternion = Quaternion.AngleAxis (rotAverageX, Vector3.up);
+			transform.localRotation = originalRotation * xQuaternion;*/			
 		}
 		else
 		{			
@@ -92,7 +136,7 @@ public class MouseLook : MonoBehaviour
             //rotationY += Input.GetAxis("Mouse Y") * sensitivityY * invertFlag * Time.timeScale;
             float mouseYInput = Input.GetAxis("Mouse Y") * sensitivityY * invertFlag * Time.timeScale;
 
-            // 检查是否已达到限制，只有在未达到限制时才累积输入
+            //检查是否已达到限制，只有在未达到限制时才累积输入
             if (!IsAtYLimit(mouseYInput))
             {
                 rotationY += mouseYInput;
@@ -112,8 +156,8 @@ public class MouseLook : MonoBehaviour
 			}
 			rotAverageY /= rotArrayY.Count;
  
-			Quaternion yQuaternion = Quaternion.AngleAxis (rotAverageY, Vector3.left);
-			transform.localRotation = originalRotation * yQuaternion;
+			/*Quaternion yQuaternion = Quaternion.AngleAxis (rotAverageY, Vector3.left);
+			transform.localRotation = originalRotation * yQuaternion;*/
 		}
 	}
 	
@@ -137,23 +181,94 @@ public class MouseLook : MonoBehaviour
 		return Mathf.Clamp (angle, min, max);
 	}
 
-    // 检查X轴是否已达到限制
+    //检查X轴是否已达到限制
     private bool IsAtXLimit(float newInput)
     {
         float projectedRotation = rotationX + newInput;
         float clampedRotation = ClampAngle(projectedRotation, minimumX, maximumX);
 
-        // 如果投影的旋转值被限制，说明已达到边界
         return Mathf.Abs(projectedRotation - clampedRotation) > 0.001f;
     }
 
-    // 检查Y轴是否已达到限制
+    //检查Y轴是否已达到限制
     private bool IsAtYLimit(float newInput)
     {
         float projectedRotation = rotationY + newInput;
         float clampedRotation = Mathf.Clamp(projectedRotation, minimumY, maximumY);
 
-        // 如果投影的旋转值被限制，说明已达到边界
         return Mathf.Abs(projectedRotation - clampedRotation) > 0.001f;
+    }
+
+    void HandleMovementRotation()
+    {
+        // 获取WASD输入
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+
+        // 根据WASD输入计算目标旋转角度
+        if (vertical > 0) //
+        {
+            if (horizontal > 0) // W + D
+                targetPlayerRotationY = 45f;
+            else if (horizontal < 0) // W + A
+                targetPlayerRotationY = -45f;
+            else // W
+                targetPlayerRotationY = 0f;
+        }
+        else if (vertical < 0) //
+        {
+            if (horizontal > 0) // S + D
+                targetPlayerRotationY = 135f;
+            else if (horizontal < 0) // S + A
+                targetPlayerRotationY = -135f;
+            else //S
+                targetPlayerRotationY = 180f;
+        }
+        else
+        {
+            if (horizontal > 0) // D
+                targetPlayerRotationY = 90f;
+            else if (horizontal < 0) // A
+                targetPlayerRotationY = -90f;
+        }
+
+        // 平滑过渡到目标旋转
+        currentPlayerRotationY = Mathf.LerpAngle(currentPlayerRotationY, targetPlayerRotationY, rotationSmoothness * Time.deltaTime);
+    }
+
+    void ClimbingRotation()
+    {
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+
+        targetPlayerRotationY = firstPersonDrifter.playerFacing;
+        currentPlayerRotationY = Mathf.LerpAngle(currentPlayerRotationY, targetPlayerRotationY, rotationSmoothness * Time.deltaTime);
+    }
+
+    void ApplyFinalRotation()
+    {
+        //只旋转玩家本体
+        transform.localRotation = Quaternion.Euler(0f, currentPlayerRotationY, 0f);
+    }
+
+    void KeepCameraUpright()
+    {
+        if (mainCamera != null)
+        {
+            //保持摄像头的本地旋转为初始值（保持0旋转）
+            mainCamera.localRotation = originalCameraRotation;
+
+            //应用鼠标视角旋转到摄像头上
+            if (axes == RotationAxes.MouseX)
+            {
+                Quaternion xQuaternion = Quaternion.AngleAxis(rotAverageX, Vector3.up);
+                mainCamera.localRotation *= xQuaternion;
+            }
+            else
+            {
+                Quaternion yQuaternion = Quaternion.AngleAxis(rotAverageY, Vector3.left);
+                mainCamera.localRotation *= yQuaternion;
+            }
+        }
     }
 }
