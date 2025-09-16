@@ -18,7 +18,7 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadScene()
     {
-        SceneManager.LoadScene("Patrick - Blocking Out Scene");
+        SceneManager.LoadScene("GameBlockout");
 
     }
 }
