@@ -16,6 +16,7 @@ public class Item : MonoBehaviour
     void Start()
     {
         inventoryManager = GameObject.Find("Canvas").GetComponent<InventoryManager>();
+        
     }
 
     private void OnTriggerEnter(Collider other)
