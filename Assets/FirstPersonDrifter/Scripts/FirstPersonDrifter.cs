@@ -132,7 +132,7 @@ public class FirstPersonDrifter : MonoBehaviour
         // If both horizontal and vertical are used simultaneously, limit speed (if allowed), so the total doesn't exceed normal move speed
         float inputModifyFactor = (inputX != 0.0f && inputY != 0.0f && limitDiagonalSpeed) ? .7071f : 1.0f;
 
-        if (inputY == 0 && inputY == 0)
+        if (inputX == 0 && inputY == 0)
             animator.SetBool("isRunning", false);
         else 
             animator.SetBool("isRunning", true);
@@ -244,7 +244,7 @@ public class FirstPersonDrifter : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (!isClimbing && other.isTrigger)
+        if (!isClimbing && other.isTrigger && !other.CompareTag("Collectable"))
         {
             EnterClimbingMode(other);
         }
