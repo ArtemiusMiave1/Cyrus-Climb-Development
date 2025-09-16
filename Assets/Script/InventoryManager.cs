@@ -12,7 +12,7 @@ public class InventoryManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -40,8 +40,8 @@ public class InventoryManager : MonoBehaviour
         {
             if (itemSlot[i].isFull == false)
             {
-                 itemSlot[i].AddItem(itemName, quantity, itemSprite);
-                 return;
+                itemSlot[i].AddItem(itemName, quantity, itemSprite);
+                return;
             }
         }
     }
