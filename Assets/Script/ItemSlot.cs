@@ -6,14 +6,14 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System;
 
-public class ItemSlot : MonoBehaviour //, IPointerClickHandler
+public class ItemSlot : MonoBehaviour, IPointerClickHandler
 {
     //===ITEM DATA===//
     public string itemName;
     public int quantity;
     public bool isFull;
     public Sprite itemSprite;
-    //public string itemDescription;
+    public string itemDescription;
 
 
     //===ITEM SLOT===//
@@ -21,27 +21,27 @@ public class ItemSlot : MonoBehaviour //, IPointerClickHandler
     [SerializeField] private Image itemImage;
 
     //===ITEM DESCRIPTION SLOT===//
-    // public TMP_Text itemDescriptionNameText;
-    //public TMP_Text ItemDescriptionText;
+    public TMP_Text itemDescriptionNameText;
+    public TMP_Text ItemDescriptionText;
 
-    //public GameObject selectedShader;
-    //public bool thisItemSelected;
 
-    //private InventoryManager inventoryManager;
-    //private void Start()
-    //{
-    //    inventoryManager = GameObject.Find("InventoryCanvas").GetComponent<InventoryManager>;
-    //}
+    public GameObject selectedShader;
+    public bool thisItemSelected;
+
+    private InventoryManager inventoryManager;
 
     public void Start()
     {
-        Debug.Log(quantityText.enabled);
-    } 
-    public void AddItem(string itemName, int quantity, Sprite itemSprite)
+        inventoryManager = GameObject.Find("Canvas").GetComponent<InventoryManager>();
+
+        //Debug.Log(quantityText.enabled);
+    }
+    public void AddItem(string itemName, int quantity, Sprite itemSprite, string itemDescription)
     {
         this.itemName = itemName;
         this.quantity = quantity;
         this.itemSprite = itemSprite;
+        this.itemDescription = itemDescription;
         isFull = true;
 
         quantityText.text = quantity.ToString();
@@ -53,6 +53,34 @@ public class ItemSlot : MonoBehaviour //, IPointerClickHandler
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (eventData.button == PointerEventData.InputButton.Left)
+        {
+            OnLeftClick();
+        }
+
+        if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            OnRightClick();
+        }
+    }
+
+    public void OnLeftClick()
+    {
+        inventoryManager.DeslectAllSlots();
+        selectedShader.SetActive(true);
+        thisItemSelected = true;
+        itemDescriptionNameText.text = itemName;
+        ItemDescriptionText.text = itemDescription;
+        itemImage.sprite = itemSprite;
+    }
+
+    public void OnRightClick()
+    {
+    
     }
 }
