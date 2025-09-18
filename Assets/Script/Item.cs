@@ -18,20 +18,7 @@ public class Item : MonoBehaviour
 
     void Start()
     {
-        GameObject canvas = GameObject.Find("Canvas");
-        if (canvas == null)
-        {
-            Debug.LogError("Canvas GameObject not found! Please check if it's present in the scene.");
-        }
-        else
-        {
-            inventoryManager = canvas.GetComponent<InventoryManager>();
-
-            if (inventoryManager == null)
-            {
-                Debug.LogError("InventoryManager component not found on the Canvas GameObject! Please attach the InventoryManager script.");
-            }
-        }
+        inventoryManager = GameObject.Find("Canvas").GetComponent<InventoryManager>();
     }
 
     private void OnTriggerEnter(Collider other)
