@@ -25,7 +25,7 @@ public class InventoryManager : MonoBehaviour
             menuActivated = false;
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-            
+
         }
 
         else if (Input.GetKeyDown(KeyCode.E) && !menuActivated)
@@ -35,6 +35,7 @@ public class InventoryManager : MonoBehaviour
             menuActivated = true;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+            DeslectAllSlots();
         }
     }
 
