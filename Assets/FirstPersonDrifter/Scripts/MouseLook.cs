@@ -38,12 +38,16 @@ public class MouseLook : MonoBehaviour
     public float framesOfSmoothing = 5;
 
     Quaternion originalRotation;
+    //Quaternion originalRotationX;
 
 
     // 玩家移动旋转相关变量
     public float rotationSmoothness = 5f;
     private float targetPlayerRotationY = 0f;
     private float currentPlayerRotationY = 0f;
+
+    private float targetPlayerRotationX = 0f;
+    public float currentPlayerRotationX = 0f;
 
     // 摄像头引用
     public Transform mainCamera;
@@ -60,6 +64,7 @@ public class MouseLook : MonoBehaviour
         }
 
         originalRotation = transform.localRotation;
+        //originalRotationX = transform.localRotation;
 
         // 获取或设置主摄像头
         if (mainCamera == null)
@@ -246,12 +251,15 @@ public class MouseLook : MonoBehaviour
 
         targetPlayerRotationY = firstPersonDrifter.playerFacing;
         currentPlayerRotationY = Mathf.LerpAngle(currentPlayerRotationY, targetPlayerRotationY, rotationSmoothness * Time.deltaTime);
+
+        targetPlayerRotationX = firstPersonDrifter.playerFacingX;
+        currentPlayerRotationX = Mathf.LerpAngle(currentPlayerRotationX, targetPlayerRotationX, rotationSmoothness * Time.deltaTime);
     }
 
     void ApplyFinalRotation()
     {
         //只旋转玩家本体
-        transform.localRotation = Quaternion.Euler(0f, currentPlayerRotationY, 0f);
+        transform.localRotation = Quaternion.Euler(currentPlayerRotationX, currentPlayerRotationY, 0f);
     }
 
     void KeepCameraUpright()

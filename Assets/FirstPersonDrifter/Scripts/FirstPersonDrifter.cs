@@ -69,6 +69,8 @@ public class FirstPersonDrifter : MonoBehaviour
     private Vector3 wallJumpDirection;
 
     public float playerFacing = 0f;         //玩家朝向
+    public float playerFacingX = 0f;
+    [SerializeField] private MouseLook mouseLook;
 
     void Start()
     {
@@ -270,13 +272,20 @@ public class FirstPersonDrifter : MonoBehaviour
             playerFacing = surface.transform.parent.eulerAngles.y;
         }
 
+        if (surface.transform.parent != null)
+        {
+            playerFacingX = surface.transform.parent.eulerAngles.x;
+        }
+
         Debug.Log(playerFacing);
+        Debug.Log(playerFacingX);
         Debug.Log("Enter climbing mode");
     }
 
     private void ExitClimbingMode()
     {
         isClimbing = false;
+        mouseLook.currentPlayerRotationX = 0f;
         climbingSurface = null;
 
         animator.SetBool("isClimbing", false);
@@ -285,6 +294,7 @@ public class FirstPersonDrifter : MonoBehaviour
 
     private void ManualExitClimbingMode()
     {
+        mouseLook.currentPlayerRotationX = 0f;
         if (climbingSurface == null) return;
 
         //计算后退目标位置（世界空间Z轴负方向）
