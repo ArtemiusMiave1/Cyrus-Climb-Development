@@ -736,8 +736,6 @@ GameObject:
   - component: {fileID: 2179704201433202472}
   - component: {fileID: 5410198857777581450}
   - component: {fileID: 4195928899323536394}
-  - component: {fileID: 3898095363874388096}
-  - component: {fileID: 8465384867095717374}
   m_Layer: 0
   m_Name: VanillaPlayer-will
   m_TagString: Player
@@ -840,61 +838,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3898095363874388096
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6630624123839540136}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 772aa5b11b2f44377adfea31f5015913, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 0}
-  walkSpeed: 6
-  runSpeed: 10
-  enableRunning: 0
-  jumpSpeed: 6
-  gravity: 10
-  slideWhenOverSlopeLimit: 0
-  slideOnTaggedObjects: 0
-  slideSpeed: 5
-  airControl: 1
-  antiBumpFactor: 0.75
-  antiBunnyHopFactor: 1
-  climbSpeed: 2
-  isClimbing: 0
-  backStepDistance: 0.5
-  backStepDuration: 0.2
-  wallJumpUpForce: 10
-  wallJumpDuration: 0.5
-  playerFacing: 0
---- !u!114 &8465384867095717374
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6630624123839540136}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5a9933f332744a448082eea5c70a300, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  axes: 1
-  invertY: 0
-  sensitivityX: 10
-  sensitivityY: 9
-  minimumX: -20
-  maximumX: 20
-  minimumY: -85
-  maximumY: 85
-  framesOfSmoothing: 20
-  rotationSmoothness: 5
-  mainCamera: {fileID: 8291045196818368017}
-  firstPersonDrifter: {fileID: 3898095363874388096}
 --- !u!1001 &4251503581326289287
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -264,6 +264,7 @@ public class FirstPersonDrifter : MonoBehaviour
         climbingSurface = surface;
 
         animator.SetBool("isClimbing", true);
+        animator.SetBool("isRunning", false);
         if (surface.transform.parent != null)
         {
             //返回父物体的Y轴旋转角度
