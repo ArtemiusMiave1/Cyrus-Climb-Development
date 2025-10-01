@@ -192,7 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3018868, g: 0.3018868, b: 0.3018868, a: 1}
+  m_Color: {r: 0.5345911, g: 0.5345911, b: 0.5345911, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -306,11 +306,10 @@ MonoBehaviour:
   isFull: 0
   itemSprite: {fileID: 0}
   itemDescription: 
-  emptySprite: {fileID: 0}
+  emptySprite: {fileID: 21300000, guid: 5cf482a44e7bd13429a6eced2266a344, type: 3}
   quantityText: {fileID: 6686043860113331602}
-  itemImage: {fileID: 21270844461379709}
+  itemImage: {fileID: 0}
   itemNameText: {fileID: 885919891624728772}
-  itemDescriptionNameText: {fileID: 885919891624728772}
   ItemDescriptionText: {fileID: 0}
   selectedShader: {fileID: 239841747569449118}
   thisItemSelected: 0
