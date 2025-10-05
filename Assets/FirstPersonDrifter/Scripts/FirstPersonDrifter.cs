@@ -141,7 +141,7 @@ public class FirstPersonDrifter : MonoBehaviour
         {
             bool sliding = false;
             // See if surface immediately below should be slid down. We use this normally rather than a ControllerColliderHit point,
-            // because that interferes with step climbing amongst other annoyances
+            // because that interferes with step climbing amongst other annoyancesV
             if (Physics.Raycast(myTransform.position, -Vector3.up, out hit, rayDistance))
             {
                 if (Vector3.Angle(hit.normal, Vector3.up) > slideLimit)
