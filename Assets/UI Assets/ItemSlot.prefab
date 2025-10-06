@@ -192,7 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3018868, g: 0.3018868, b: 0.3018868, a: 1}
+  m_Color: {r: 0.5345911, g: 0.5345911, b: 0.5345911, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -298,22 +298,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 476357459665127797}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e1f494a5c6cac042a3b0c00784a57ba, type: 3}
+  m_Script: {fileID: 11500000, guid: 1cbf7ccbf66bd844f8607ee4bf049c75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: 
-  quantity: 0
-  isFull: 0
-  itemSprite: {fileID: 0}
-  itemDescription: 
-  emptySprite: {fileID: 0}
-  quantityText: {fileID: 6686043860113331602}
-  itemImage: {fileID: 21270844461379709}
-  itemNameText: {fileID: 885919891624728772}
-  itemDescriptionNameText: {fileID: 885919891624728772}
-  ItemDescriptionText: {fileID: 0}
-  selectedShader: {fileID: 239841747569449118}
-  thisItemSelected: 0
+  objectToShow: []
+  objectsToHide: []
+  ItemUI: {fileID: 0}
 --- !u!1 &8469916672407421904
 GameObject:
   m_ObjectHideFlags: 0
