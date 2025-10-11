@@ -301,7 +301,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fd17638c5b8b4824bb41286d1428aeb1, type: 2}
+  - {fileID: 2100000, guid: 386e2036d1b30314198837db91a14ecf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -654,7 +654,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fd17638c5b8b4824bb41286d1428aeb1, type: 2}
+  - {fileID: 2100000, guid: 386e2036d1b30314198837db91a14ecf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1007,7 +1007,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fd17638c5b8b4824bb41286d1428aeb1, type: 2}
+  - {fileID: 2100000, guid: 386e2036d1b30314198837db91a14ecf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2419,7 +2419,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fd17638c5b8b4824bb41286d1428aeb1, type: 2}
+  - {fileID: 2100000, guid: 386e2036d1b30314198837db91a14ecf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2772,7 +2772,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fd17638c5b8b4824bb41286d1428aeb1, type: 2}
+  - {fileID: 2100000, guid: 386e2036d1b30314198837db91a14ecf, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3200,7 +3200,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fd17638c5b8b4824bb41286d1428aeb1, type: 2}
+  - {fileID: 2100000, guid: e85f4d16ddf239b4990720d15a8bb354, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5763,7 +5763,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 2be9c5f1043b1cf4ebd3c2c334bd71ca, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 52408a7d5bc67c349b25e120bdbaa95e, type: 2}
+      objectReference: {fileID: 2100000, guid: 6ef6299332e52a846841c083ae77a93b, type: 2}
     - target: {fileID: 919132149155446097, guid: 2be9c5f1043b1cf4ebd3c2c334bd71ca, type: 3}
       propertyPath: m_Name
       value: Window
