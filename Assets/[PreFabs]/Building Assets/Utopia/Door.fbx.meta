@@ -3,7 +3,17 @@ guid: 0b8199e89721be647acda3ce4e1a8038
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dark_Seamless_1
+    second: {fileID: 2100000, guid: e85f4d16ddf239b4990720d15a8bb354, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Light_Seamless_1
+    second: {fileID: 2100000, guid: 6ef6299332e52a846841c083ae77a93b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

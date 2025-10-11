@@ -3,7 +3,12 @@ guid: 2c009953fc315824aaf312ac08c944c4
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Light_Seamless_1
+    second: {fileID: 2100000, guid: 6ef6299332e52a846841c083ae77a93b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
