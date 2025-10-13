@@ -22611,7 +22611,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 386e2036d1b30314198837db91a14ecf, type: 2}
+  - {fileID: 2100000, guid: 1e6897b845cc6494b90cc0940ed31163, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -48598,7 +48598,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 2c009953fc315824aaf312ac08c944c4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 07dc66ae04b7f6a43b9674bf0fefb33a, type: 2}
+      objectReference: {fileID: 2100000, guid: 386e2036d1b30314198837db91a14ecf, type: 2}
     - target: {fileID: 919132149155446097, guid: 2c009953fc315824aaf312ac08c944c4, type: 3}
       propertyPath: m_Name
       value: Rock2 (5)
@@ -50765,6 +50765,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 2c009953fc315824aaf312ac08c944c4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 386e2036d1b30314198837db91a14ecf, type: 2}
     - target: {fileID: 919132149155446097, guid: 2c009953fc315824aaf312ac08c944c4, type: 3}
       propertyPath: m_Name
       value: Rock2 (4)
