@@ -19127,15 +19127,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7401218840435285199, guid: 8ecbdd24073700b41b5aac4e3093ff59, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 370.85
+      value: 334.45
       objectReference: {fileID: 0}
     - target: {fileID: 7401218840435285199, guid: 8ecbdd24073700b41b5aac4e3093ff59, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 17.42
+      value: -26.492
       objectReference: {fileID: 0}
     - target: {fileID: 7401218840435285199, guid: 8ecbdd24073700b41b5aac4e3093ff59, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -244.68
+      value: -290.201
       objectReference: {fileID: 0}
     - target: {fileID: 7401218840435285199, guid: 8ecbdd24073700b41b5aac4e3093ff59, type: 3}
       propertyPath: m_LocalRotation.w
@@ -19778,6 +19778,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -2.4880066
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6782f0a0423eeee4bb7b410c00c5d379, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 052b660c83eb6344893ac022d39195b6, type: 2}
     - target: {fileID: 919132149155446097, guid: 6782f0a0423eeee4bb7b410c00c5d379, type: 3}
       propertyPath: m_Name
       value: Tube_Coral_1 (2)
@@ -21981,6 +21985,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -136.084
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6782f0a0423eeee4bb7b410c00c5d379, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 052b660c83eb6344893ac022d39195b6, type: 2}
     - target: {fileID: 919132149155446097, guid: 6782f0a0423eeee4bb7b410c00c5d379, type: 3}
       propertyPath: m_Name
       value: Tube_Coral_1
@@ -22050,6 +22058,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -180
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6782f0a0423eeee4bb7b410c00c5d379, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 052b660c83eb6344893ac022d39195b6, type: 2}
     - target: {fileID: 919132149155446097, guid: 6782f0a0423eeee4bb7b410c00c5d379, type: 3}
       propertyPath: m_Name
       value: Tube_Coral_1 (1)
