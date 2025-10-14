@@ -41,7 +41,7 @@ public class FirstPersonDrifter : MonoBehaviour
     public int antiBunnyHopFactor = 1;
 
     private Vector3 moveDirection = Vector3.zero;
-    private bool grounded = false;
+    public bool grounded = false;
     private CharacterController controller;
     private Transform myTransform;
     private float speed;
