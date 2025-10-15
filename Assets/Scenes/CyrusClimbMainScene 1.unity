@@ -34297,6 +34297,46 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 2051126274}
+    - target: {fileID: 2402917580851936445, guid: 538d58b488462e341a07f1123abad71b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -46.07234
+      objectReference: {fileID: 0}
+    - target: {fileID: 2402917580851936445, guid: 538d58b488462e341a07f1123abad71b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 27.936218
+      objectReference: {fileID: 0}
+    - target: {fileID: 2402917580851936445, guid: 538d58b488462e341a07f1123abad71b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.8570213
+      objectReference: {fileID: 0}
+    - target: {fileID: 2402917580851936445, guid: 538d58b488462e341a07f1123abad71b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.85119545
+      objectReference: {fileID: 0}
+    - target: {fileID: 2402917580851936445, guid: 538d58b488462e341a07f1123abad71b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.05851867
+      objectReference: {fileID: 0}
+    - target: {fileID: 2402917580851936445, guid: 538d58b488462e341a07f1123abad71b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.5215733
+      objectReference: {fileID: 0}
+    - target: {fileID: 2402917580851936445, guid: 538d58b488462e341a07f1123abad71b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.0017585044
+      objectReference: {fileID: 0}
+    - target: {fileID: 2402917580851936445, guid: 538d58b488462e341a07f1123abad71b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 5.612
+      objectReference: {fileID: 0}
+    - target: {fileID: 2402917580851936445, guid: 538d58b488462e341a07f1123abad71b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 63.177
+      objectReference: {fileID: 0}
+    - target: {fileID: 2402917580851936445, guid: 538d58b488462e341a07f1123abad71b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 3.689
+      objectReference: {fileID: 0}
     - target: {fileID: 2503326099608094137, guid: 538d58b488462e341a07f1123abad71b, type: 3}
       propertyPath: m_Mesh
       value: 
