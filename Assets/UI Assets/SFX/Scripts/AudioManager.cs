@@ -10,7 +10,7 @@ private bool menuActivated;
     // Start is called before the first frame update
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.J) && menuActivated)
+        if (Input.GetKeyDown(KeyCode.Escape) && menuActivated)
         {
             Time.timeScale = 1;
             AudioMenu.SetActive(false);
@@ -20,7 +20,7 @@ private bool menuActivated;
 
         }
 
-        else if (Input.GetKeyDown(KeyCode.J) && !menuActivated)
+        else if (Input.GetKeyDown(KeyCode.Escape) && !menuActivated)
         {
             Time.timeScale = 0;
             AudioMenu.SetActive(true);
