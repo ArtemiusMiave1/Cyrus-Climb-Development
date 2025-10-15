@@ -82,11 +82,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   outlineSettings:
-    outlineColor: {r: 0.21181911, g: 0.26415092, b: 0.22303307, a: 0.7529412}
+    outlineColor: {r: 0.21181911, g: 0.26415092, b: 0.22303307, a: 0.6117647}
     outlineScale: 1.7
     depthThreshold: 23.3
     robertsCrossMultiplier: 70
-    normalThreshold: 0.656
+    normalThreshold: 0.978
     steepAngleThreshold: 0.2
     steepAngleMultiplier: 25
     colorFormat: 0
@@ -258,10 +258,10 @@ MonoBehaviour:
     m_Bits: 1024
   outlineSettings:
     outlineColor: {r: 0.26241046, g: 0.7798742, b: 0.3014643, a: 1}
-    outlineScale: 1
-    depthThreshold: 1.5
-    robertsCrossMultiplier: 100
-    normalThreshold: 0.4
+    outlineScale: 0.6
+    depthThreshold: 19.9
+    robertsCrossMultiplier: 0
+    normalThreshold: 0.602
     steepAngleThreshold: 0.2
     steepAngleMultiplier: 25
     colorFormat: 0
