@@ -10009,8 +10009,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8041744374802660955}
   - {fileID: 7264343106430947138}
+  - {fileID: 8041744374802660955}
   m_Father: {fileID: 7401218840435285199}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3356040242832541653
@@ -10107,7 +10107,7 @@ MonoBehaviour:
   enableRunning: 0
   jumpSpeed: 6
   gravity: 10
-  slideWhenOverSlopeLimit: 0
+  slideWhenOverSlopeLimit: 1
   slideOnTaggedObjects: 0
   slideSpeed: 5
   airControl: 1
@@ -15090,7 +15090,7 @@ Transform:
   m_GameObject: {fileID: 8016533779722858823}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.958, z: 0}
+  m_LocalPosition: {x: 0, y: -0.8806, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
