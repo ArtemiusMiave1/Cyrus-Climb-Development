@@ -4844,6 +4844,7 @@ GameObject:
   - component: {fileID: 6451357790744246007}
   - component: {fileID: 47366878267401239}
   - component: {fileID: 1728076439931585074}
+  - component: {fileID: 1837849741722951931}
   m_Layer: 0
   m_Name: Collectable
   m_TagString: Collectable
@@ -4946,7 +4947,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 50
-  rotationAxis: {x: 0, y: 1, z: 0}
 --- !u!135 &1728076439931585074
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4968,3 +4968,18 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.005
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1837849741722951931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8580989889062278769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b93a37c8fa32ae4291063d95fe4ae3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioClips:
+  - {fileID: 8300000, guid: dfbd0f00cfd8e5f4f9338015afc32416, type: 3}
+  Volume: 2
