@@ -21,4 +21,4 @@ public class CollectableCount : MonoBehaviour
     {
         collectableCounter.text = collectableCount + "/" + collectableTotal;
     }
-}
+} 

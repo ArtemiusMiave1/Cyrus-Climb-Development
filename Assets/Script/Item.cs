@@ -27,6 +27,7 @@ public class Item : MonoBehaviour
         {
             inventoryManager.AddItem(itemName, quantity, sprite, itemDescription);
             CollectableCount.collectableCount++;
+            VaultDoor.collectableCount++;
             Destroy(gameObject);
         }
     }
