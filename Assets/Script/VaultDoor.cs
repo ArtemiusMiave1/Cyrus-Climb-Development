@@ -1,9 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class VaultDoor : MonoBehaviour
 {
+
+    [Header("Animation")]
+    public Animator Amulet;
+    public int delayTime;
     public Animator LeftDoor;
     public Animator RightDoor;
     public bool Door_Active;
@@ -12,9 +17,22 @@ public class VaultDoor : MonoBehaviour
     public int collectableTotal;
     public int currentColelctables;
 
-
     public static int collectableCount;
+
+    [Header("Camera Shake")]
+    public GameObject Camera;
+    public bool shakeStart = false;
+    public AnimationCurve shakeCurve;
+    public float shakeDuration = 1f;
+
+    [Header("Audio")]
+    [SerializeField] private AudioClip[] AudioClips;
+    public float Volume = 1f;
+    private bool Played;
     // Start is called before the first frame update
+
+    
+ 
     void Start()
     {
 
@@ -23,6 +41,12 @@ public class VaultDoor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (shakeStart)
+        {
+            shakeStart = false;
+            StartCoroutine(Shaking());
+        }
+
         currentColelctables = collectableCount / 2;
         InTheZone = InZone;
 
@@ -32,24 +56,48 @@ public class VaultDoor : MonoBehaviour
             Door_Active = true;
         }
 
-       
+
 
 
 
         if (Door_Active == true && InZone == true)
-        { 
+        {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                LeftDoor.SetBool("Door_Activated", true);
-                RightDoor.SetBool("Door_Activated", true);
+                Amulet.SetBool("Door_Activated", true);
+                Invoke("DelayedAnimation", delayTime);
 
             }
         }
+    }
 
+    void DelayedAnimation()
+    {
 
-        
+        LeftDoor.SetBool("Door_Activated", true);
+        RightDoor.SetBool("Door_Activated", true);
 
+        StartCoroutine(Shaking());
+        if (Played == false)
+        {
+            SoundFXManager.Instance.PlayRandomSoundFXClip(AudioClips, transform, Volume);
+            Played = true;
+        }
+    }
 
+    IEnumerator Shaking()
+    {
+        Vector3 startPosition = Camera.transform.position;
+        float elapsedTime = 0f;
 
+        while (elapsedTime < shakeDuration)
+        {
+            startPosition = Camera.transform.position;
+            elapsedTime += Time.deltaTime;
+            float strength = shakeCurve.Evaluate(elapsedTime/shakeDuration);  
+            Camera.transform.position = startPosition + Random.insideUnitSphere * strength;
+            yield return null;
+        }
+        Camera.transform.position = startPosition;
     }
 }

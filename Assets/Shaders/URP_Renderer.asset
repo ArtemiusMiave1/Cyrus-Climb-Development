@@ -143,6 +143,38 @@ MonoBehaviour:
   m_Active: 0
   m_stencilMask: 255
   m_replaceProjectorMaterialForDebug: {fileID: 0}
+--- !u!114 &-1377286301626261627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1ed764e421c7c347bbf6768fd13f89e, type: 3}
+  m_Name: AmuletFinal
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  renderPassEvent: 350
+  outlinesLayerMask:
+    serializedVersion: 2
+    m_Bits: 2048
+  outlineSettings:
+    outlineColor: {r: 0.2627451, g: 0.78039217, b: 0.3019608, a: 0.4392157}
+    outlineScale: 0.6
+    depthThreshold: 19.9
+    robertsCrossMultiplier: 0
+    normalThreshold: 0.602
+    steepAngleThreshold: 0.2
+    steepAngleMultiplier: 25
+    colorFormat: 0
+    depthBufferBits: 0
+    filterMode: 0
+    backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+    perObjectData: 0
+    enableDynamicBatching: 0
+    enableInstancing: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,7 +200,8 @@ MonoBehaviour:
   - {fileID: 374459614516464397}
   - {fileID: -5794496482324103959}
   - {fileID: 4121737123388244393}
-  m_RendererFeatureMap: be95893403da03a270d6a4450fffca6cec15a613b78b6ab938cf25699ea3c87de5a23a63594192a3a71c3c9f8541a8880dcbfb1109593205e93cd25e26d095afa9c11869135a3339
+  - {fileID: -1377286301626261627}
+  m_RendererFeatureMap: be95893403da03a270d6a4450fffca6cec15a613b78b6ab938cf25699ea3c87de5a23a63594192a3a71c3c9f8541a8880dcbfb1109593205e93cd25e26d095afa9c11869135a3339851f8ee567e5e2ec
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
