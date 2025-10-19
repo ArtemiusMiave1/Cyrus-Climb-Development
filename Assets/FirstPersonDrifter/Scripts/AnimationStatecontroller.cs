@@ -9,6 +9,11 @@ public class AnimationStatecontroller : MonoBehaviour
     public float acceleration = 1f;
     public float deceleration = 3f;
     int VelocityHash;
+
+    public float running;
+    public float climbing;
+    public float jump;
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -20,17 +25,17 @@ public class AnimationStatecontroller : MonoBehaviour
     void Update()
     {
 
-        if (animator.GetBool("isRunning") == true && velocity < 0.15f)
+        if (animator.GetBool("isRunning") == true && velocity < running)
         {
             velocity += Time.deltaTime * acceleration;
         }
 
-        if (animator.GetBool("isClimbing") == true && velocity < 1f)
+        if (animator.GetBool("isClimbing") == true && velocity < climbing)
         {
             velocity += Time.deltaTime * (acceleration * 10); 
         }
 
-        if (animator.GetBool("isClimbing") == false && velocity > 0.155f)
+        if (animator.GetBool("isClimbing") == false && velocity > running + .05)
         {
             velocity -= Time.deltaTime * (deceleration * 10);
         }

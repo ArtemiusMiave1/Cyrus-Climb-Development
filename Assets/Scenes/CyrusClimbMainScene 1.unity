@@ -607,6 +607,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   acceleration: 0.1
   deceleration: 0.2
+  running: 0.1
+  climbing: 0.75
+  jump: 0
 --- !u!1001 &33808767
 PrefabInstance:
   m_ObjectHideFlags: 0
