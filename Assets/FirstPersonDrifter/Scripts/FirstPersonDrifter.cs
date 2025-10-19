@@ -4,6 +4,7 @@
 
 using UnityEngine;
 using System.Collections;
+using UnityEngine.ProBuilder.MeshOperations;
 
 [RequireComponent(typeof(CharacterController))]
 public class FirstPersonDrifter : MonoBehaviour
@@ -85,6 +86,8 @@ public class FirstPersonDrifter : MonoBehaviour
         //检测是否按下空格键来退出攀爬模式
         if (isClimbing && Input.GetButtonDown("Jump"))
         {
+            animator.SetTrigger("jump");
+            animator.SetBool("grounded", false);
             ManualExitClimbingMode();
         }
     }
@@ -116,10 +119,19 @@ public class FirstPersonDrifter : MonoBehaviour
             //计算墙面坐标系移动
             Vector3 move = climbingSurface.transform.right * climbX
                          + climbingSurface.transform.up * climbY;
-
+            animator.speed = 1f;
             //标准化并应用速度
-            if (move.magnitude > 1) move.Normalize();
+            if (move.magnitude > 1)
+            {
+                move.Normalize();
+            }
+
+            if (climbX == 0 && climbY == 0)
+            {
+                animator.speed = 0f;
+            }
             move *= climbSpeed;
+            
 
             moveDirection = Vector3.zero;
             controller.Move(move * Time.deltaTime);
@@ -139,6 +151,8 @@ public class FirstPersonDrifter : MonoBehaviour
 
         if (grounded)
         {
+            ExitClimbingMode();
+            animator.SetBool("grounded", true);
             bool sliding = false;
             // See if surface immediately below should be slid down. We use this normally rather than a ControllerColliderHit point,
             // because that interferes with step climbing amongst other annoyancesV
@@ -184,10 +198,12 @@ public class FirstPersonDrifter : MonoBehaviour
                 Vector3.OrthoNormalize(ref hitNormal, ref moveDirection);
                 moveDirection *= slideSpeed;
                 playerControl = false;
+                animator.SetBool("wobble", true);
             }
             // Otherwise recalculate moveDirection directly from axes, adding a bit of -y to avoid bumping down inclines
             else
             {
+                animator.SetBool("wobble", false);
                 // The player's moving coordinates are not affected by rotation
                 moveDirection = new Vector3(inputX * inputModifyFactor, -antiBumpFactor, inputY * inputModifyFactor) * speed;
 
@@ -197,11 +213,16 @@ public class FirstPersonDrifter : MonoBehaviour
 
             // Jump! But only if the jump button has been released and player has been grounded for a given number of frames
             if (!Input.GetButton("Jump"))
+            {
                 jumpTimer++;
+                //animator.SetTrigger("jump");
+            }
             else if (jumpTimer >= antiBunnyHopFactor)
             {
                 moveDirection.y = jumpSpeed;
                 jumpTimer = 0;
+                animator.SetTrigger("jump");
+                animator.SetBool("grounded", false);
             }
         }
         else
@@ -262,7 +283,7 @@ public class FirstPersonDrifter : MonoBehaviour
     {
         isClimbing = true;
         climbingSurface = surface;
-
+        //animator.SetBool("jump", false);
         animator.SetBool("isClimbing", true);
         if (surface.transform.parent != null)
         {
@@ -276,6 +297,7 @@ public class FirstPersonDrifter : MonoBehaviour
 
     private void ExitClimbingMode()
     {
+        animator.speed = 1f;
         isClimbing = false;
         climbingSurface = null;
 
@@ -286,7 +308,7 @@ public class FirstPersonDrifter : MonoBehaviour
     private void ManualExitClimbingMode()
     {
         if (climbingSurface == null) return;
-
+        animator.speed = 1f;
         //计算后退目标位置（世界空间Z轴负方向）
         Vector3 backStep = transform.position + Vector3.back * backStepDistance;
 
