@@ -201,7 +201,8 @@ MonoBehaviour:
   - {fileID: -5794496482324103959}
   - {fileID: 4121737123388244393}
   - {fileID: -1377286301626261627}
-  m_RendererFeatureMap: be95893403da03a270d6a4450fffca6cec15a613b78b6ab938cf25699ea3c87de5a23a63594192a3a71c3c9f8541a8880dcbfb1109593205e93cd25e26d095afa9c11869135a3339851f8ee567e5e2ec
+  - {fileID: 1931618155837673710}
+  m_RendererFeatureMap: be95893403da03a270d6a4450fffca6cec15a613b78b6ab938cf25699ea3c87de5a23a63594192a3a71c3c9f8541a8880dcbfb1109593205e93cd25e26d095afa9c11869135a3339851f8ee567e5e2ecee5066847a7cce1a
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
@@ -272,6 +273,38 @@ MonoBehaviour:
     perObjectData: 0
     enableDynamicBatching: 0
     enableInstancing: 0
+--- !u!114 &1931618155837673710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1ed764e421c7c347bbf6768fd13f89e, type: 3}
+  m_Name: THE EGG
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  renderPassEvent: 350
+  outlinesLayerMask:
+    serializedVersion: 2
+    m_Bits: 4096
+  outlineSettings:
+    outlineColor: {r: 0.2627451, g: 0.78039217, b: 0.3019608, a: 1}
+    outlineScale: 2.2
+    depthThreshold: 19.3
+    robertsCrossMultiplier: 100
+    normalThreshold: 0.372
+    steepAngleThreshold: 0.2
+    steepAngleMultiplier: 25
+    colorFormat: 0
+    depthBufferBits: 0
+    filterMode: 0
+    backgroundColor: {r: 0, g: 0, b: 0, a: 0}
+    perObjectData: 0
+    enableDynamicBatching: 0
+    enableInstancing: 0
 --- !u!114 &4121737123388244393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -290,7 +323,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   outlineSettings:
-    outlineColor: {r: 0.26241046, g: 0.7798742, b: 0.3014643, a: 1}
+    outlineColor: {r: 0.28934762, g: 0.69182384, b: 0.31983823, a: 1}
     outlineScale: 0.6
     depthThreshold: 19.9
     robertsCrossMultiplier: 0
