@@ -120,6 +120,11 @@ public class FirstPersonDrifter : MonoBehaviour
             Vector3 move = climbingSurface.transform.right * climbX
                          + climbingSurface.transform.up * climbY;
             animator.speed = 1f;
+
+            // animator climb variales
+            animator.SetFloat("moveX", climbX);
+            animator.SetFloat("moveY", climbY);
+
             //标准化并应用速度
             if (move.magnitude > 1)
             {
