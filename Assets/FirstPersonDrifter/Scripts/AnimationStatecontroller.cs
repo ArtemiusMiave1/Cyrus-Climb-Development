@@ -19,32 +19,32 @@ public class AnimationStatecontroller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float horizontal = Input.GetAxis("Horizontal"); // A/D or left stick X
-        float vertical = Input.GetAxis("Vertical");     // W/S or left stick Y
-        if (animator.GetBool("isClimbing") == true)
-        {
-            // up
-            if (horizontal > 0 && velocity > 0)
-            {
-                velocity += Time.deltaTime * acceleration;
-                animator.speed = 1.0f;
-            }
-            if (horizontal < 0 && velocity > 0)
-            {
-                velocity += Time.deltaTime * acceleration;
-                animator.speed = -2.0f;
-            }
-            if (vertical > 0 && velocity < 0.5f)
-            {
-                velocity += Time.deltaTime * acceleration;
-                animator.speed = 1.0f;
-            }
-            if (vertical < 0 && velocity < 0.5f)
-            {
-                velocity += Time.deltaTime * acceleration;
-                animator.speed = -2.0f;
-            }
-        }
+        //float horizontal = Input.GetAxis("Horizontal"); // A/D or left stick X
+        //float vertical = Input.GetAxis("Vertical");     // W/S or left stick Y
+        //if (animator.GetBool("isClimbing") == true)
+        //{
+        //    // up
+        //    if (horizontal > 0 && velocity > 0)
+        //    {
+        //        velocity += Time.deltaTime * acceleration;
+        //        animator.speed = 1.0f;
+        //    }
+        //    if (horizontal < 0 && velocity > 0)
+        //    {
+        //        velocity += Time.deltaTime * acceleration;
+        //        animator.speed = -2.0f;
+        //    }
+        //    if (vertical > 0 && velocity < 0.5f)
+        //    {
+        //        velocity += Time.deltaTime * acceleration;
+        //        animator.speed = 1.0f;
+        //    }
+        //    if (vertical < 0 && velocity < 0.5f)
+        //    {
+        //        velocity += Time.deltaTime * acceleration;
+        //        animator.speed = -2.0f;
+        //    }
+        //}
 
             // down
 
