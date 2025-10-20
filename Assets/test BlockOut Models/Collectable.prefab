@@ -4842,6 +4842,7 @@ GameObject:
   - component: {fileID: 6650232607269535668}
   - component: {fileID: 2578931626950996530}
   - component: {fileID: 6451357790744246007}
+  - component: {fileID: 1172020157392310406}
   - component: {fileID: 47366878267401239}
   - component: {fileID: 1728076439931585074}
   - component: {fileID: 1837849741722951931}
@@ -4934,6 +4935,19 @@ MonoBehaviour:
   quantity: 1
   sprite: {fileID: 21300000, guid: dd838a2865a5b6b40969785e867cb46d, type: 3}
   itemDescription: sgvbfsdgsdfbd
+--- !u!114 &1172020157392310406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8580989889062278769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a02e568c5ad91324b8dbc9edb3e00e90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Counter: {fileID: 0}
 --- !u!114 &47366878267401239
 MonoBehaviour:
   m_ObjectHideFlags: 0

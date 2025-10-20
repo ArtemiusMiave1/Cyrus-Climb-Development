@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEditor.UI;
 
 
 public class CollectableCount : MonoBehaviour
@@ -19,6 +20,7 @@ public class CollectableCount : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        collectableCounter.text = collectableCount + "/" + collectableTotal;
+        collectableCounter.text = collectableCount / 2 + "/" + collectableTotal;
+        Debug.Log("collectableCount =" + collectableCount);
     }
 } 
