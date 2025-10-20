@@ -29,10 +29,16 @@ public class VaultDoor : MonoBehaviour
     [SerializeField] private AudioClip[] AudioClips;
     public float Volume = 1f;
     private bool Played;
+
+
+    [Header("UI")]
+    public GameObject Enough;
+    public GameObject notEnough;
+    private bool menuActivated;
     // Start is called before the first frame update
 
-    
- 
+
+
     void Start()
     {
 
@@ -41,6 +47,29 @@ public class VaultDoor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (InTheZone && currentColelctables == collectableTotal)
+        {
+            Enough.SetActive(true);
+            notEnough.SetActive(false);
+        }
+      
+        if (!InTheZone && currentColelctables == collectableTotal)
+        {
+            Enough.SetActive(false);
+            notEnough.SetActive(false);
+        }
+
+        if (InTheZone && currentColelctables != collectableTotal)
+        {
+            notEnough.SetActive(true);
+        }
+        if (!InTheZone && currentColelctables != collectableTotal)
+        {
+            notEnough.SetActive(false);
+        }
+
+
+
         if (shakeStart)
         {
             shakeStart = false;
