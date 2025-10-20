@@ -6,7 +6,8 @@ public class YBot : MonoBehaviour
 {
     [Header("Components")]
     Animator animator;
-    AudioSource audioSource;
+    public AudioSource primaryAudioSource;
+    public AudioSource footstepAudioSource;
     public ParticleSystem footstepFX;
     public ParticleSystem climbingFX;
     public ParticleSystem jumpingFX;
@@ -26,7 +27,7 @@ public class YBot : MonoBehaviour
     private void Awake()
     {
         animator = GetComponent<Animator>();
-        audioSource = GetComponent<AudioSource>();
+        primaryAudioSource = GetComponent<AudioSource>();
         if (FirstPersonDrifterRefrence.grounded)
         {
             Debug.Log("myBoolean in ScriptA is true!");
@@ -55,7 +56,7 @@ public class YBot : MonoBehaviour
 
         int random = Random.Range(0, landingSounds.Length);
         var clip = landingSounds[random];
-        audioSource.PlayOneShot(clip);
+        primaryAudioSource.PlayOneShot(clip);
 
         jumpingFX.Emit(10);
 
@@ -66,7 +67,7 @@ public class YBot : MonoBehaviour
 
         int random = Random.Range(0, jumpingSounds.Length);
         var clip = jumpingSounds[random];
-        audioSource.PlayOneShot(clip);
+        primaryAudioSource.PlayOneShot(clip);
 
         jumpingFX.Emit(5);
 
@@ -80,7 +81,7 @@ public class YBot : MonoBehaviour
             {
                 int random = Random.Range(0, footstepSounds.Length);
                 var clip = footstepSounds[random];
-                audioSource.PlayOneShot(clip);
+                footstepAudioSource.PlayOneShot(clip);
             }
         }
 
@@ -95,7 +96,7 @@ public class YBot : MonoBehaviour
         {
             int random = Random.Range(0, climbingSounds.Length);
             var clip = climbingSounds[random];
-            audioSource.PlayOneShot(clip);
+            primaryAudioSource.PlayOneShot(clip);
         }
 
         
