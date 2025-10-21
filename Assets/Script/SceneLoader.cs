@@ -9,7 +9,7 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadGameScene()
     {
-        SceneManager.LoadScene("GameBlockout");
+        SceneManager.LoadScene("CyrusClimbMainScene 1");
 
     }
 }
