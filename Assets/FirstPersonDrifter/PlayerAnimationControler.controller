@@ -826,15 +826,15 @@ BlendTree:
     m_Motion: {fileID: 7400000, guid: ecd2ded920f0c884bb0aed4fc0688984, type: 2}
     m_Threshold: 0.2
     m_Position: {x: 1, y: 0}
-    m_TimeScale: 1
+    m_TimeScale: 1.5
     m_CycleOffset: 0
     m_DirectBlendParameter: IKRightFoot
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 4d667b6ef79778d4c9a2e3cec9e4d8b6, type: 2}
+    m_Motion: {fileID: 7400000, guid: 5c034465c6def0f459f6f00ea7de6a0a, type: 2}
     m_Threshold: 0.55
     m_Position: {x: -1, y: 0}
-    m_TimeScale: -1
+    m_TimeScale: 1.5
     m_CycleOffset: 0
     m_DirectBlendParameter: IKRightFoot
     m_Mirror: 0
@@ -842,7 +842,7 @@ BlendTree:
     m_Motion: {fileID: 7400000, guid: 575b3e2d014978043a7815992a78b44e, type: 2}
     m_Threshold: 0.90000004
     m_Position: {x: 0, y: 1.1}
-    m_TimeScale: 1
+    m_TimeScale: 1.5
     m_CycleOffset: 0
     m_DirectBlendParameter: IKRightFoot
     m_Mirror: 0
@@ -850,7 +850,7 @@ BlendTree:
     m_Motion: {fileID: 7400000, guid: 575b3e2d014978043a7815992a78b44e, type: 2}
     m_Threshold: 1.25
     m_Position: {x: 0, y: -1.1}
-    m_TimeScale: -1
+    m_TimeScale: -1.5
     m_CycleOffset: 0
     m_DirectBlendParameter: IKRightFoot
     m_Mirror: 0
