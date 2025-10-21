@@ -70,6 +70,10 @@ public class VaultDoor : MonoBehaviour
             {
                 notEnough.SetActive(false);
             }
+        } else
+        {
+            Enough.SetActive(false);
+            notEnough.SetActive(false);
         }
 
 
