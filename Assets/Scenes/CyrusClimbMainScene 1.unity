@@ -15581,6 +15581,22 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1264100860443309699, guid: e31ec1d49fb534144a59a727ef4a4c49, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2341437769223145769, guid: e31ec1d49fb534144a59a727ef4a4c49, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.499975
+      objectReference: {fileID: 0}
+    - target: {fileID: 2341437769223145769, guid: e31ec1d49fb534144a59a727ef4a4c49, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2341437769223145769, guid: e31ec1d49fb534144a59a727ef4a4c49, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.499975
+      objectReference: {fileID: 0}
     - target: {fileID: 2452143132427943953, guid: e31ec1d49fb534144a59a727ef4a4c49, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -15661,6 +15677,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2818733225858656913, guid: e31ec1d49fb534144a59a727ef4a4c49, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -5.4188232
+      objectReference: {fileID: 0}
+    - target: {fileID: 4363392065919787006, guid: e31ec1d49fb534144a59a727ef4a4c49, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.499975
+      objectReference: {fileID: 0}
+    - target: {fileID: 4363392065919787006, guid: e31ec1d49fb534144a59a727ef4a4c49, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4363392065919787006, guid: e31ec1d49fb534144a59a727ef4a4c49, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.499975
+      objectReference: {fileID: 0}
     - target: {fileID: 5197887164091401662, guid: e31ec1d49fb534144a59a727ef4a4c49, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -15672,6 +15704,10 @@ PrefabInstance:
     - target: {fileID: 5197887164091401662, guid: e31ec1d49fb534144a59a727ef4a4c49, type: 3}
       propertyPath: m_AnchorMin.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5551762961368723589, guid: e31ec1d49fb534144a59a727ef4a4c49, type: 3}
+      propertyPath: objectsToHide.Array.data[0]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5561923826986380195, guid: e31ec1d49fb534144a59a727ef4a4c49, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -15689,10 +15725,46 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0.2499625
       objectReference: {fileID: 0}
+    - target: {fileID: 7037686509482224099, guid: e31ec1d49fb534144a59a727ef4a4c49, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.499975
+      objectReference: {fileID: 0}
+    - target: {fileID: 7037686509482224099, guid: e31ec1d49fb534144a59a727ef4a4c49, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7180830768336097594, guid: e31ec1d49fb534144a59a727ef4a4c49, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.499975
+      objectReference: {fileID: 0}
+    - target: {fileID: 7180830768336097594, guid: e31ec1d49fb534144a59a727ef4a4c49, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7200791035387800195, guid: e31ec1d49fb534144a59a727ef4a4c49, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.499975
+      objectReference: {fileID: 0}
+    - target: {fileID: 7200791035387800195, guid: e31ec1d49fb534144a59a727ef4a4c49, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7200791035387800195, guid: e31ec1d49fb534144a59a727ef4a4c49, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.499975
+      objectReference: {fileID: 0}
     - target: {fileID: 7799604909396595542, guid: e31ec1d49fb534144a59a727ef4a4c49, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1973960048}
+    - target: {fileID: 7859051959041538966, guid: e31ec1d49fb534144a59a727ef4a4c49, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.499975
+      objectReference: {fileID: 0}
+    - target: {fileID: 7859051959041538966, guid: e31ec1d49fb534144a59a727ef4a4c49, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8348962162773008362, guid: e31ec1d49fb534144a59a727ef4a4c49, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -15700,6 +15772,10 @@ PrefabInstance:
     - target: {fileID: 8348962162773008362, guid: e31ec1d49fb534144a59a727ef4a4c49, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8779225277272996372, guid: e31ec1d49fb534144a59a727ef4a4c49, type: 3}
+      propertyPath: m_Name
+      value: AudioMenu
       objectReference: {fileID: 0}
     - target: {fileID: 8779225277272996372, guid: e31ec1d49fb534144a59a727ef4a4c49, type: 3}
       propertyPath: m_IsActive
@@ -15710,7 +15786,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1973960048}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1264100860443309699, guid: e31ec1d49fb534144a59a727ef4a4c49, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2452143132427943953, guid: e31ec1d49fb534144a59a727ef4a4c49, type: 3}
       insertIndex: -1
@@ -26889,7 +26966,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 78191965}
+  m_Mesh: {fileID: 814211891}
 --- !u!33 &916331081
 MeshFilter:
   m_ObjectHideFlags: 10
@@ -63396,7 +63473,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 775734679}
+  m_Mesh: {fileID: 1558448340}
 --- !u!33 &2062126609
 MeshFilter:
   m_ObjectHideFlags: 10
