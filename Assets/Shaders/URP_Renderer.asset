@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: environment
   m_EditorClassIdentifier: 
   m_Active: 1
-  renderPassEvent: 350
+  renderPassEvent: 600
   outlinesLayerMask:
     serializedVersion: 2
     m_Bits: 55
@@ -202,7 +202,8 @@ MonoBehaviour:
   - {fileID: 4121737123388244393}
   - {fileID: -1377286301626261627}
   - {fileID: 1931618155837673710}
-  m_RendererFeatureMap: be95893403da03a270d6a4450fffca6cec15a613b78b6ab938cf25699ea3c87de5a23a63594192a3a71c3c9f8541a8880dcbfb1109593205e93cd25e26d095afa9c11869135a3339851f8ee567e5e2ecee5066847a7cce1a
+  - {fileID: 1017967564499823877}
+  m_RendererFeatureMap: be95893403da03a270d6a4450fffca6cec15a613b78b6ab938cf25699ea3c87de5a23a63594192a3a71c3c9f8541a8880dcbfb1109593205e93cd25e26d095afa9c11869135a3339851f8ee567e5e2ecee5066847a7cce1a05ade1421b8c200e
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
@@ -273,6 +274,26 @@ MonoBehaviour:
     perObjectData: 0
     enableDynamicBatching: 0
     enableInstancing: 0
+--- !u!114 &1017967564499823877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d613f08f173d4dd895bb07b3230baa9, type: 3}
+  m_Name: FullScreenPassRendererFeature
+  m_EditorClassIdentifier: 
+  m_Active: 0
+  injectionPoint: 600
+  fetchColorBuffer: 1
+  requirements: 0
+  passMaterial: {fileID: 2100000, guid: 78a08787ca30045abb69f6f7dd878e09, type: 2}
+  passIndex: 0
+  bindDepthStencilAttachment: 0
+  m_Version: 1
 --- !u!114 &1931618155837673710
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,18 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf2edee5c58d82540a51f03df9d42094, type: 3}
-  m_Name: URP
+  m_Name: test render
   m_EditorClassIdentifier: 
   k_AssetVersion: 11
   k_AssetPreviousVersion: 11
   m_RendererType: 1
   m_RendererData: {fileID: 0}
   m_RendererDataList:
-  - {fileID: 11400000, guid: 57e1f18d4b2f486459f0c127ffbe3fdd, type: 2}
-  - {fileID: 11400000, guid: 343e28cdd34484e8ba4c4e3dd3f800e6, type: 2}
+  - {fileID: 11400000, guid: 87ac56cd2e4d99f40893169e65d73300, type: 2}
   m_DefaultRendererIndex: 0
-  m_RequireDepthTexture: 1
-  m_RequireOpaqueTexture: 1
+  m_RequireDepthTexture: 0
+  m_RequireOpaqueTexture: 0
   m_OpaqueDownsampling: 1
   m_SupportsTerrainHoles: 1
   m_SupportsHDR: 1
@@ -55,7 +54,7 @@ MonoBehaviour:
   m_ShadowDepthBias: 1
   m_ShadowNormalBias: 1
   m_AnyShadowsSupported: 1
-  m_SoftShadowsSupported: 1
+  m_SoftShadowsSupported: 0
   m_ConservativeEnclosingSphere: 1
   m_NumIterationsEnclosingSphere: 64
   m_SoftShadowQuality: 2
@@ -91,7 +90,7 @@ MonoBehaviour:
   m_PrefilteringModeDeferredRendering: 0
   m_PrefilteringModeScreenSpaceOcclusion: 0
   m_PrefilterDebugKeywords: 1
-  m_PrefilterWriteRenderingLayers: 0
+  m_PrefilterWriteRenderingLayers: 1
   m_PrefilterHDROutput: 1
   m_PrefilterSSAODepthNormals: 1
   m_PrefilterSSAOSourceDepthLow: 1
@@ -104,7 +103,7 @@ MonoBehaviour:
   m_PrefilterSSAOSampleCountHigh: 1
   m_PrefilterDBufferMRT1: 1
   m_PrefilterDBufferMRT2: 1
-  m_PrefilterDBufferMRT3: 0
+  m_PrefilterDBufferMRT3: 1
   m_PrefilterSoftShadowsQualityLow: 1
   m_PrefilterSoftShadowsQualityMedium: 1
   m_PrefilterSoftShadowsQualityHigh: 1
