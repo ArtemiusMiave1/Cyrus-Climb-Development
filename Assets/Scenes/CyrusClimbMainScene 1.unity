@@ -12828,7 +12828,7 @@ Transform:
   m_GameObject: {fileID: 450309639}
   serializedVersion: 2
   m_LocalRotation: {x: -0.07837983, y: 0.6978498, z: 0.7064418, w: 0.088331066}
-  m_LocalPosition: {x: 452.5543, y: 42.126465, z: -227.09949}
+  m_LocalPosition: {x: 452.5543, y: 42.355, z: -227.09949}
   m_LocalScale: {x: 99.99999, y: 77.981964, z: 26.060478}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -28038,6 +28038,7 @@ MonoBehaviour:
   RightDoor: {fileID: 2029360517}
   Door_Active: 0
   InTheZone: 0
+  Triggered: 0
   collectableTotal: 5
   currentColelctables: 0
   Camera: {fileID: 2096830885}
@@ -34085,7 +34086,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 46763c393d09cd24882aa9a73b119442, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1606213181}
   m_SourcePrefab: {fileID: 100100000, guid: 46763c393d09cd24882aa9a73b119442, type: 3}
 --- !u!4 &1191883710 stripped
 Transform:
@@ -46768,6 +46772,33 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6782f0a0423eeee4bb7b410c00c5d379, type: 3}
+--- !u!1 &1606213178 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 46763c393d09cd24882aa9a73b119442, type: 3}
+  m_PrefabInstance: {fileID: 1191883709}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1606213181
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1606213178}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4493585093827132993, guid: 46763c393d09cd24882aa9a73b119442, type: 3}
 --- !u!1001 &1606809992
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -59243,6 +59274,7 @@ MonoBehaviour:
   RightDoor: {fileID: 2029360517}
   Door_Active: 0
   InTheZone: 0
+  Triggered: 0
   collectableTotal: 4
   currentColelctables: 0
   Camera: {fileID: 0}
@@ -65763,6 +65795,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 2051126274}
+    - target: {fileID: 3124494242121545839, guid: 538d58b488462e341a07f1123abad71b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.06
+      objectReference: {fileID: 0}
     - target: {fileID: 3151583967921085402, guid: 538d58b488462e341a07f1123abad71b, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -65871,6 +65907,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 2025727900}
+    - target: {fileID: 3693570705976621988, guid: 538d58b488462e341a07f1123abad71b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 11.182
+      objectReference: {fileID: 0}
     - target: {fileID: 3727128630523797528, guid: 538d58b488462e341a07f1123abad71b, type: 3}
       propertyPath: m_Layer
       value: 6
