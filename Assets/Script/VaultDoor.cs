@@ -13,6 +13,7 @@ public class VaultDoor : MonoBehaviour
     public Animator RightDoor;
     public bool Door_Active;
     public bool InTheZone;
+    public bool Triggered;
     public static bool InZone;
     public int collectableTotal;
     public int currentColelctables;
@@ -47,30 +48,33 @@ public class VaultDoor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (InTheZone && currentColelctables == collectableTotal)
+        if (Triggered == false)
         {
-            Enough.SetActive(true);
-            notEnough.SetActive(false);
-        }
-      
-        if (!InTheZone && currentColelctables == collectableTotal)
-        {
-            Enough.SetActive(false);
-            notEnough.SetActive(false);
+            if (InTheZone && currentColelctables == collectableTotal)
+            {
+                Enough.SetActive(true);
+                notEnough.SetActive(false);
+            }
+
+            if (!InTheZone && currentColelctables == collectableTotal)
+            {
+                Enough.SetActive(false);
+                notEnough.SetActive(false);
+            }
+
+            if (InTheZone && currentColelctables != collectableTotal)
+            {
+                notEnough.SetActive(true);
+            }
+            if (!InTheZone && currentColelctables != collectableTotal)
+            {
+                notEnough.SetActive(false);
+            }
         }
 
-        if (InTheZone && currentColelctables != collectableTotal)
-        {
-            notEnough.SetActive(true);
-        }
-        if (!InTheZone && currentColelctables != collectableTotal)
-        {
-            notEnough.SetActive(false);
-        }
 
 
-
-        if (shakeStart)
+            if (shakeStart)
         {
             shakeStart = false;
             StartCoroutine(Shaking());
@@ -89,12 +93,13 @@ public class VaultDoor : MonoBehaviour
 
 
 
-        if (Door_Active == true && InZone == true)
+        if (Door_Active == true && InZone == true && Triggered == false)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
                 Amulet.SetBool("Door_Activated", true);
                 Invoke("DelayedAnimation", delayTime);
+                Triggered = true;
 
             }
         }
