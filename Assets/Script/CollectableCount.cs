@@ -15,6 +15,12 @@ public class CollectableCount : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            collectableCount = 0;
+            VaultDoor.collectableCount=collectableCount;    // Vault Collection = collection count 
+        }
+        
         if (collectableCount != previousCount)  // Checking to see if the count has changed by comparing to the previous count
         {
             collectableCounter.text= collectableCount + "/" + collectableTotal;    // Updates the UI
