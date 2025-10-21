@@ -29524,7 +29524,7 @@ MonoBehaviour:
   Door_Active: 0
   InTheZone: 0
   Triggered: 0
-  collectableTotal: 1
+  collectableTotal: 5
   currentColelctables: 0
   Camera: {fileID: 2096830885}
   shakeStart: 0
@@ -39550,15 +39550,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7401218840435285199, guid: 8ecbdd24073700b41b5aac4e3093ff59, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 434.43
+      value: 334.14
       objectReference: {fileID: 0}
     - target: {fileID: 7401218840435285199, guid: 8ecbdd24073700b41b5aac4e3093ff59, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 33.03
+      value: -26.16
       objectReference: {fileID: 0}
     - target: {fileID: 7401218840435285199, guid: 8ecbdd24073700b41b5aac4e3093ff59, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -225.01
+      value: -298.22
       objectReference: {fileID: 0}
     - target: {fileID: 7401218840435285199, guid: 8ecbdd24073700b41b5aac4e3093ff59, type: 3}
       propertyPath: m_LocalRotation.w

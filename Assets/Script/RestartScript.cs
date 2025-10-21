@@ -11,6 +11,15 @@ public class RestartScript: MonoBehaviour
     }
 
     // Optional: Automatically restart when pressing R
+    private void Start()
+    {
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Time.timeScale = 1;
+
+
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
