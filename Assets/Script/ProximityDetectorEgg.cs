@@ -97,6 +97,7 @@ public class ProximityDetectorEgg: MonoBehaviour
 
         Cursor.lockState = CursorLockMode.None;
 
+        CollectableCount.collectableCount = 0;
         SceneManager.LoadScene("Main Menu");
     }
 }
