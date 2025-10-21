@@ -9,6 +9,7 @@ public class Collectable : MonoBehaviour
          if (other.CompareTag("Player") && gameObject.CompareTag("Collectable"))
         {
             CollectableCount.collectableCount++;
+            VaultDoor.collectableCount++;
             Destroy(gameObject);
         }
     }

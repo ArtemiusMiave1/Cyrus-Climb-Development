@@ -76,11 +76,11 @@ public class VaultDoor : MonoBehaviour
             StartCoroutine(Shaking());
         }
 
-        currentColelctables = collectableCount / 2;
+        currentColelctables = collectableCount;
         InTheZone = InZone;
 
 
-        if (collectableCount / 2  == collectableTotal)
+        if (collectableCount  == collectableTotal)
         {
             Door_Active = true;
         }
