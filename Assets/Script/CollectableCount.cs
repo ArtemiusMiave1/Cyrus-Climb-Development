@@ -17,7 +17,7 @@ public class CollectableCount : MonoBehaviour
     {
         if (collectableCount != previousCount)  // Checking to see if the count has changed by comparing to the previous count
         {
-            collectableCounter.text = collectableCount + "/" + collectableTotal;    // Updates the UI
+            collectableCounter.text= collectableCount + "/" + collectableTotal;    // Updates the UI
 
             if (animator != null)
             {
