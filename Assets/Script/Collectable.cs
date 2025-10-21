@@ -6,7 +6,7 @@ public class Collectable : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+         if (other.CompareTag("Player") && gameObject.CompareTag("Collectable"))
         {
             CollectableCount.collectableCount++;
             Destroy(gameObject);
