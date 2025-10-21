@@ -104,7 +104,7 @@ public class VaultDoor : MonoBehaviour
                 Amulet.SetBool("Door_Activated", true);
                 Invoke("DelayedAnimation", delayTime);
                 Triggered = true;
-
+                CountUpTimer2.locked2 = true;
             }
         }
     }

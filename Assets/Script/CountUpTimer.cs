@@ -7,6 +7,10 @@ public class TimerController : MonoBehaviour
     public float startTime = 60f; // Starting time in seconds
     private float currentTime;
     private bool timerActive = true;
+    public bool locked;
+
+
+    public static bool locked2;
 
     void Start()
     {
@@ -15,7 +19,17 @@ public class TimerController : MonoBehaviour
 
     void Update()
     {
-        if (timerActive)
+        if (Input.anyKeyDown)
+        {
+            if ( locked == false)
+            {
+
+                timerActive = true;
+                locked = true;
+            }
+        }
+
+            if (timerActive && locked2 == false)
         {
             currentTime -= Time.deltaTime;
 
