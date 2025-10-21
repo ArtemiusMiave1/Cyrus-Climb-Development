@@ -10,7 +10,8 @@ public class Collectable : MonoBehaviour
     {
         // Debug.Log("Collectable triggered: " + gameObject.name);
         CollectableCount.collectableCount++;    // Collectable count goes up by 1
-        Destroy(gameObject);
+            VaultDoor.collectableCount++;    // Collectable count goes up by 1
+            Destroy(gameObject);
     }
 }
 }
